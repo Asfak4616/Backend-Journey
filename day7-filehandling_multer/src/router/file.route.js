@@ -11,6 +11,7 @@ router.post("/", uploads.single("image"), (req, res) => {
 
     console.log(body);
     console.log(file);
+    
     res.status(200).json({
       message: "File received Successfully",
     });
