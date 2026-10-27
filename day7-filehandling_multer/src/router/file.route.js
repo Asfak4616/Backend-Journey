@@ -1,21 +1,24 @@
-const express = require("express")
-
+const express = require("express");
+const uploads = require("../config/multer");
 
 const router = express.Router();
 
-router.post("/",(req,res)=>{
-    try {
+router.post("/", uploads.single("image"), (req, res) => {
+  try {
+    let body = req.body;
 
-        
-        res.status(200).json({
-            message:"File received Successfully"
-        })
-        
-    } catch (error) {
-        return res.status(500).json({
-            message:"Internal Server Error"
-        })
-    }
-})
+    let file = req.file;
+
+    console.log(body);
+    console.log(file);
+    res.status(200).json({
+      message: "File received Successfully",
+    });
+  } catch (error) {
+    return res.status(500).json({
+      message: "Internal Server Error",
+    });
+  }
+});
 
 module.exports = router;
