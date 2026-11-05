@@ -27,3 +27,13 @@ return res.status (201).json({
 })
 
 }
+
+
+export const getAllPost = async (req,res)=>{
+    const post =await postModel.find()
+
+    return res.status(200).json({
+        success:true,
+        message:"Posts Fetched Successfully"
+    })
+}

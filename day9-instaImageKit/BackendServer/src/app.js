@@ -6,6 +6,7 @@ import postRoutes from './router/post.route.js'
 dotenv.config({ path: path.resolve(import.meta.dirname, "../.env") });
 
 const app = express();
+//middleware 
 app.use(express.json());
 
 
